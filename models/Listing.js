@@ -1,7 +1,7 @@
 import mongoose from "mongoose"
 const { Schema } = mongoose
 
-const ListingsSchema = new Schema({
+const ListingSchema = new Schema({
   street: {
     type: "String",
     required: true
@@ -36,6 +36,6 @@ const ListingsSchema = new Schema({
   }
 })
 
-const listingModel = mongoose.model("Listings", ListingsSchema)
+const listingModel = mongoose.model("Listings", ListingSchema)
 
 export default listingModel

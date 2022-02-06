@@ -1,4 +1,4 @@
-import Listings from "../model/Listings.js"
+import Listings from "../models/Listing.js"
 
 export const createPost = async (req, res, next) => {
   const listing = new Listings({
