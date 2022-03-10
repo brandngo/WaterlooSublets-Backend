@@ -9,7 +9,7 @@ dotenv.config()
 
 export const createUser = async (req, res) => {
   try {
-    const { email , password } = req.body;
+    const { email, password } = req.body;
     if (!(email && password)) { // should prob be error checked in the frontend?
       return res.status(400).json({
         error: "Missing information."
@@ -25,13 +25,13 @@ export const createUser = async (req, res) => {
         }
       })
 */
-    const userExists = Users.findOne({ email })
-    if (userExists) {
+    const doc = await Users.findOne({ email }).exec()
+
+    if (doc !== null) {
       return res.status(400).json({
         error: "User exists."
       })
     }
-      
     const user = new Users({
       email,
       password: await bcrypt.hash(password, 10)
